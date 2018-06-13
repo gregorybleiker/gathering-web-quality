@@ -61,3 +61,7 @@ Here are the commands and tweaks used to create the application
       font-family: Roboto, Arial, sans-serif;
       margin: 0;
     }
+
+4) Add toolbar component
+
+    `ng generate component toolbar`
