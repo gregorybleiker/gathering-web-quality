@@ -39,3 +39,25 @@ Here are the commands and tweaks used to create the application
     - Add prettier
     - Add debug support
     - Add ENV_PROVIDERS
+
+3) Install *Angular Material*
+
+    `yarn add @angular/material @angular/cdk hammerjs`
+
+  Include fonts in `index.html`:
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Mono:300" rel="stylesheet">
+
+  Include hammerjs in `main.ts`:
+
+    import 'hammerjs';
+
+  Patch global `styles.scss`:
+
+    @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+    body { 
+      font-family: Roboto, Arial, sans-serif;
+      margin: 0;
+    }
