@@ -8,4 +8,8 @@ export class AppPage {
   getAppTitle() {
     return element(by.css('bbv-root mat-toolbar span')).getText();
   }
+
+  getHomeTitle() {
+    return element(by.css('bbv-root bbv-home h1')).getText();
+  }
 }

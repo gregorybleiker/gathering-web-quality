@@ -11,4 +11,9 @@ describe('workspace-project App', () => {
     page.navigateTo();
     expect(page.getAppTitle()).toEqual('ng-football-pools');
   });
+
+  it('should display home title', () => {
+    page.navigateTo();
+    expect(page.getHomeTitle()).toEqual('Welcome to bbv Football Bets!');
+  });
 });

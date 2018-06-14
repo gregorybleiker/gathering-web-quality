@@ -65,3 +65,7 @@ Here are the commands and tweaks used to create the application
 4) Add toolbar component
 
     `ng generate component toolbar`
+
+5) Add home component
+
+    `ng generate component home`
