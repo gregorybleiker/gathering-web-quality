@@ -1,9 +1,9 @@
-<mat-toolbar color="primary">
-  <span class="app-title" routerLink="/" id="app-title">{{ title }}</span>
-  <span class="menu-item" routerLink="/matches">Matches</span>
-  <span class="menu-item" routerLink="#">Rankings</span>
-  <span class="menu-item" routerLink="#">Bets</span>
-  <span class="menu-item" routerLink="#">Scores</span>
+<mat-toolbar color="primary" class="app-navbar" >
+  <span><img  src="../assets/bbv.png"  class="logo" (click)="navigateToHome()"></span>
+  <a mat-button  routerLink="/matches">Matches</a>
+  <a mat-button  routerLink="/rankings">Rankings</a>
+  <a mat-button  routerLink="/bets">Bets</a>
+  <a mat-button  routerLink="/scores">Scores</a>
   <span class="example-fill-remaining-space"></span>
-  <span class="menu-item" routerLink="#">Login</span>
+  <a mat-button  routerLink="/login">Login</a>
 </mat-toolbar>

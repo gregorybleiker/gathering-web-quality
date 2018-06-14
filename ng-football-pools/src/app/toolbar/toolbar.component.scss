@@ -1,13 +1,14 @@
-.app-title {
-  font-size: 24px;
-  margin-right: 1em;
-  cursor: pointer;
+.app-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
-.menu-item {
-  font-size: 18px;
-  margin-left: 2em;
-  cursor: pointer;
+.logo {
+  height: 50px;
+  margin-right: 2em
 }
 
 .example-fill-remaining-space {

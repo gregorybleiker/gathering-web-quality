@@ -1,15 +1,19 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Router } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToolbarComponent } from './toolbar.component';
 
 describe('ToolbarComponent', () => {
+  const router = jasmine.createSpyObj('Router', ['navigateByUrl']);
+
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ToolbarComponent],
+      providers: [{ provide: Router, useValue: router }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
@@ -24,12 +28,9 @@ describe('ToolbarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have 'ng-football-pools' as title`, () => {
-    expect(component.title).toEqual('ng-football-pools');
-  });
+  it('should navigate to home', () => {
+    component.navigateToHome();
 
-  it('should render app title', () => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('#app-title').textContent).toContain('ng-football-pools');
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/');
   });
 });

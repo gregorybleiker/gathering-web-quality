@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
 
 import { ENV_PROVIDERS } from '../environments/environment';
 
@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, HomeComponent],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, MatToolbarModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, MatToolbarModule, MatButtonModule, MatIconModule],
   providers: [ENV_PROVIDERS],
   bootstrap: [AppComponent]
 })

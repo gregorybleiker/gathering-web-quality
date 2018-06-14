@@ -7,11 +7,6 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display app title', () => {
-    page.navigateTo();
-    expect(page.getAppTitle()).toEqual('ng-football-pools');
-  });
-
   it('should display home title', () => {
     page.navigateTo();
     expect(page.getHomeTitle()).toEqual('Welcome to bbv Football Bets!');

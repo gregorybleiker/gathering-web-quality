@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bbv-toolbar',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-  title = 'ng-football-pools';
+  constructor(private router: Router) {}
+
+  navigateToHome() {
+    this.router.navigateByUrl('/');
+  }
 }
