@@ -69,3 +69,11 @@ Here are the commands and tweaks used to create the application
 5) Add home component
 
     `ng generate component home`
+
+6) Add Matches feature
+
+    `ng generate module matches`
+
+    `ng generate service worldcup/worldcup`
+
+    `ng generate component matches`

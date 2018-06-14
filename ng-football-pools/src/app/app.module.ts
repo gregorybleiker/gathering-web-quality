@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material';
 
@@ -13,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, MatToolbarModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, MatToolbarModule],
   providers: [ENV_PROVIDERS],
   bootstrap: [AppComponent]
 })
