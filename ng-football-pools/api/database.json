@@ -1,0 +1,44 @@
+{
+  "rankings": [
+    { "username": "Köbi Kuhn", "score": 42 },
+    { "username": "RMS", "score": 33 },
+    { "username": "Beni National", "score": 46 }
+  ],
+  "bets": [
+    {
+      "username": "Köbi Kuhn",
+      "bets": [
+        { "num": 1, "score1": 5, "score2": 1 },
+        { "num": 2, "score1": 0, "score2": 0 },
+        { "num": 3, "score1": 0, "score2": 0 },
+        { "num": 4, "score1": 0, "score2": 0 },
+        { "num": 5, "score1": 0, "score2": 0 },
+        { "num": 6, "score1": 0, "score2": 0 },
+        { "num": 7, "score1": 0, "score2": 0 },
+        { "num": 8, "score1": 0, "score2": 0 },
+        { "num": 9, "score1": 0, "score2": 0 },
+        { "num": 10, "score1": 0, "score2": 0 },
+        { "num": 11, "score1": 5, "score2": 1 },
+        { "num": 12, "score1": 0, "score2": 0 },
+        { "num": 13, "score1": 0, "score2": 0 },
+        { "num": 14, "score1": 0, "score2": 0 },
+        { "num": 15, "score1": 0, "score2": 0 },
+        { "num": 16, "score1": 0, "score2": 0 },
+        { "num": 17, "score1": 0, "score2": 0 },
+        { "num": 18, "score1": 0, "score2": 0 },
+        { "num": 19, "score1": 0, "score2": 0 },
+        { "num": 20, "score1": 0, "score2": 0 },
+        { "num": 21, "score1": 5, "score2": 1 },
+        { "num": 22, "score1": 0, "score2": 0 },
+        { "num": 23, "score1": 0, "score2": 0 },
+        { "num": 24, "score1": 0, "score2": 0 },
+        { "num": 25, "score1": 0, "score2": 0 },
+        { "num": 26, "score1": 0, "score2": 0 },
+        { "num": 27, "score1": 0, "score2": 0 },
+        { "num": 28, "score1": 0, "score2": 0 },
+        { "num": 29, "score1": 0, "score2": 0 }
+      ]
+    }
+  ],
+  "scores": [{ "num": 1, "score1": 5, "score2": 1 }]
+}

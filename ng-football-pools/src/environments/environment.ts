@@ -1,6 +1,6 @@
 const providers: any[] = [
   { provide: 'environment', useValue: 'Development' },
-  { provide: 'baseUrl', useValue: 'url/to/api' },
+  { provide: 'baseUrl', useValue: 'http://localhost:3000' },
   { provide: 'worldcupUrl', useValue: 'https://raw.githubusercontent.com/openfootball' }
 ];
 
