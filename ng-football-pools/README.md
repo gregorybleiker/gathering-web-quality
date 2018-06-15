@@ -77,3 +77,7 @@ Here are the commands and tweaks used to create the application
     `ng generate service worldcup/worldcup`
 
     `ng generate component matches`
+
+    `ng generate component matches/round --module=matches`
+
+    `ng generate component matches/match-list --module=matches`

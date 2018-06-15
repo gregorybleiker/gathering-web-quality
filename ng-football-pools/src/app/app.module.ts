@@ -14,7 +14,14 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, HomeComponent],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   providers: [ENV_PROVIDERS],
   bootstrap: [AppComponent]
 })

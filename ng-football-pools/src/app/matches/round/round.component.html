@@ -1,0 +1,10 @@
+<div class="flexWrap">
+  <mat-card>
+    <mat-card-title>
+      <h3>{{ round.name }} ({{ round.matches[0].date | date:'longDate' }})</h3>
+    </mat-card-title>
+    <mat-card-content>
+      <bbv-match-list [matches]="round.matches"></bbv-match-list>
+    </mat-card-content>
+  </mat-card>
+</div>

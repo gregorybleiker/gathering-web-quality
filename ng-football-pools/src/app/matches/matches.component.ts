@@ -1,32 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { WorldcupService, Round } from '../worldcup';
 
 @Component({
   selector: 'bbv-matches',
-  templateUrl: './matches.component.html',
-  styleUrls: ['./matches.component.scss']
+  templateUrl: './matches.component.html'
 })
-export class MatchesComponent implements OnInit, OnDestroy {
-  rounds: Round[] = [];
-
-  private subscription: Subscription;
+export class MatchesComponent implements OnInit {
+  rounds$: Observable<Round[]>;
 
   constructor(private service: WorldcupService) {}
 
   ngOnInit() {
-    this.subscription = this.service.getAllRounds().subscribe(r => {
-      if (r.matches.length >= 1) {
-        this.rounds.push(r);
-      }
-    });
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.rounds$ = this.service.getAllRounds();
   }
 }

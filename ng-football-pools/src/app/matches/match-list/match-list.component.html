@@ -1,0 +1,21 @@
+<mat-table #table [dataSource]="matches">
+  <ng-container matColumnDef="time">
+    <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.time}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="city">
+    <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="team1">
+    <mat-header-cell *matHeaderCellDef> Team1 </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.team1.name}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="team2">
+    <mat-header-cell *matHeaderCellDef> Team2 </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.team2.name}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

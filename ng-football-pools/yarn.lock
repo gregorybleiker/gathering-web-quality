@@ -224,6 +224,10 @@
   dependencies:
     "@types/jasmine" "*"
 
+"@types/lodash@^4.0.0":
+  version "4.14.109"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.109.tgz#b1c4442239730bf35cabaf493c772b18c045886d"
+
 "@types/node@10.1.2":
   version "10.1.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.2.tgz#1b928a0baa408fc8ae3ac012cc81375addc147c6"
@@ -5490,6 +5494,13 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   resolved "https://registry.yarnpkg.com/run-queue/-/run-queue-1.0.3.tgz#e848396f057d223f24386924618e25694161ec47"
   dependencies:
     aproba "^1.1.1"
+
+rxjs-marbles@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/rxjs-marbles/-/rxjs-marbles-4.2.1.tgz#446968349589a9e64d85de2269e3645e6b5a596f"
+  dependencies:
+    "@types/lodash" "^4.0.0"
+    lodash "^4.0.0"
 
 rxjs@6.2.1, rxjs@^6.0.0:
   version "6.2.1"

@@ -1,10 +1,1 @@
-<h2>Matches</h2>
-
-<ul>
-  <li *ngFor="let round of rounds">
-    {{ round.name }}<br />
-    <ul>
-      <li *ngFor="let match of round.matches">{{ match.city }}</li>
-    </ul>
-  </li>
-</ul>
+<bbv-round *ngFor="let round of rounds$ | async" [round]="round"></bbv-round>
