@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'matches', loadChildren: './matches/matches.module#MatchesModule' },
+  { path: 'rankings', loadChildren: './rankings/rankings.module#RankingsModule' },
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '/' }
 ];

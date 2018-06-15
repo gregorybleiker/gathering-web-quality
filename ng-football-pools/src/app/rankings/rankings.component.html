@@ -1,0 +1,8 @@
+<mat-card *ngIf="rankings$ | async as rankings">
+  <mat-card-title>
+    <h3>Rankings</h3>
+  </mat-card-title>
+  <mat-card-content>
+    <bbv-rankings-list [rankings]="rankings"></bbv-rankings-list>
+  </mat-card-content>
+</mat-card>

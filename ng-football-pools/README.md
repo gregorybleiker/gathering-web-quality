@@ -76,8 +76,16 @@ Here are the commands and tweaks used to create the application
 
     `ng generate service worldcup/worldcup`
 
-    `ng generate component matches`
+    `ng generate component matches --module=matches`
 
     `ng generate component matches/round --module=matches`
 
     `ng generate component matches/match-list --module=matches`
+
+7) Add Rankings feature
+
+    `ng generate module rankings`
+
+    `ng generate service ranings/rankings`
+
+    `ng generate component rankings --module=rankings`
