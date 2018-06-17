@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, filter } from 'rxjs/operators';
 
 import { Worldcup, Round } from '.';
 
@@ -14,6 +14,9 @@ export class WorldcupService {
 
   getAllRounds(): Observable<Round[]> {
     const url = this.baseUrl + '/world-cup.json/master/2018/worldcup.json';
-    return this.http.get<Worldcup>(url).pipe(map(w => w.rounds));
+    return this.http.get<Worldcup>(url).pipe(
+      map(w => w.rounds),
+      map(round => round.filter(r => r.name.startsWith('Matchday')))
+    );
   }
 }

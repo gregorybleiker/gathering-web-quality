@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title>
+    <div>
+      <h3>Bets</h3>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+    <bbv-bets-list [bets]="matches"></bbv-bets-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="save()">Save</button>
+  </mat-card-actions>
+</mat-card>

@@ -109,3 +109,13 @@ Here are the commands and tweaks used to create the application
     `ng generate component login --module=login`
 
     `ng generate component login/logout --module=login`
+
+10) Add Bets feature
+
+    `ng generate module bets`
+
+    `ng generate service bets/bets`
+
+    `ng generate component bets --module=bets`
+
+    `ng generate component bets/bets-list --module=bets`

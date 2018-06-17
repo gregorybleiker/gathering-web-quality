@@ -1,0 +1,26 @@
+<div class="mat-table">
+  <div class="mat-header-row">
+    <div class="mat-header-cell">Date</div>
+    <div class="mat-header-cell">Time</div>
+    <div class="mat-header-cell">Team1</div>
+    <div class="mat-header-cell">Team2</div>
+    <div class="mat-header-cell">Score1</div>
+    <div class="mat-header-cell">Score2</div>
+  </div>
+  <div class="mat-row" *ngFor="let bet of bets">
+    <div class="mat-cell">{{ bet.date }}</div>
+    <div class="mat-cell">{{ bet.time }}</div>
+    <div class="mat-cell">{{ bet.team1.name }}</div>
+    <div class="mat-cell">{{ bet.team2.name }}</div>
+    <div class="mat-cell">
+      <mat-form-field>
+        <input matInput [(ngModel)]="bet.score1" type="number" />
+      </mat-form-field>
+    </div>
+    <div class="mat-cell">
+      <mat-form-field>
+        <input matInput [(ngModel)]="bet.score2" type="number" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
