@@ -89,3 +89,7 @@ Here are the commands and tweaks used to create the application
     `ng generate service ranings/rankings`
 
     `ng generate component rankings --module=rankings`
+
+8) Add Event Bus
+
+    `ng generate service event-bus`
