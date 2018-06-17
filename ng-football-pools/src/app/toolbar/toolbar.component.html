@@ -2,8 +2,9 @@
   <span><img  src="../assets/bbv.png"  class="logo" (click)="navigateToHome()"></span>
   <a mat-button  routerLink="/matches" id="matchesLink">Matches</a>
   <a mat-button  routerLink="/rankings" id="rankingsLink">Rankings</a>
-  <a mat-button  routerLink="/bets" id="betsLink">Bets</a>
-  <a mat-button  routerLink="/scores" id="scoresLink">Scores</a>
+  <a mat-button routerLink="/bets" id="betsLink">Bets</a>
+  <a mat-button *ngIf="loginState.role === 'Admin'" routerLink="/scores" id="scoresLink">Scores</a>
   <span class="example-fill-remaining-space"></span>
-  <a mat-button  routerLink="/login" id="loginLink">Login</a>
+  <span *ngIf="loginState.userName" style="font-size: 14px; margin-right: 3em;">Willkommen, {{ loginState.userName }}!</span>
+  <a mat-button  (click)="navigate(loginState.routerLink)" id="loginLink">{{ loginState.authAction }}</a>
 </mat-toolbar>

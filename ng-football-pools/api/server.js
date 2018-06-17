@@ -13,7 +13,7 @@ server.use(jsonServer.defaults());
 
 const SECRET_KEY = '123456789'
 
-const expiresIn = '1h'
+const expiresIn = '500d'
 
 // Create a token from a payload
 function createToken(payload) {
@@ -38,7 +38,8 @@ server.post('/auth/login', (req, res) => {
     res.status(status).json({ status, message })
     return
   }
-  const access_token = createToken({ email, password })
+  const user = userdb.users.find(user => user.email === email && user.password === password);
+  const access_token = createToken({ id: user.id, user: user.name, role: user.role })
   res.status(200).json({ access_token })
 })
 

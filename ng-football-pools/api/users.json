@@ -2,21 +2,31 @@
   "users": [
     {
       "id": 1,
-      "name": "bruno",
-      "email": "bruno@email.com",
-      "password": "bruno"
+      "name": "Köbi Kuhn",
+      "email": "koebi@email.com",
+      "password": "koebi",
+      "role": "Player"
     },
     {
       "id": 2,
-      "name": "techie",
-      "email": "techie@email.com",
-      "password": "techie"
+      "name": "RMS",
+      "email": "rainer-maria-salzgeber@email.com",
+      "password": "rainer-maria-salzgeber",
+      "role": "Player"
     },
     {
       "id": 3,
-      "name": "nilson",
-      "email": "nilson@email.com",
-      "password": "nilson"
+      "name": "Beni National",
+      "email": "beni@email.com",
+      "password": "beni",
+      "role": "Player"
+    },
+    {
+      "id": 4,
+      "name": "Administrator",
+      "email": "admin@email.com",
+      "password": "admin",
+      "role": "Admin"
     }
   ]
 }

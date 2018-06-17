@@ -91,9 +91,9 @@
     "@angular-devkit/core" "0.6.8"
     rxjs "^6.0.0"
 
-"@angular/animations@6.0.4":
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-6.0.4.tgz#4e22612e8fed3193983d985c748514a03404bd96"
+"@angular/animations@6.0.5":
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-6.0.5.tgz#3964bc2a60facf3c3b417925c4a395b3f44abb94"
   dependencies:
     tslib "^1.9.0"
 
@@ -186,6 +186,12 @@
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-6.0.4.tgz#81c96dfa42a8c4a218cbd450b1e8959a76ea9595"
   dependencies:
     tslib "^1.9.0"
+
+"@auth0/angular-jwt@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@auth0/angular-jwt/-/angular-jwt-2.0.0.tgz#c0b2861824a24fb62d9d2e1fdb03a326e8a1e203"
+  dependencies:
+    url "^0.11.0"
 
 "@ngtools/webpack@6.0.8":
   version "6.0.8"

@@ -93,3 +93,19 @@ Here are the commands and tweaks used to create the application
 8) Add Event Bus
 
     `ng generate service event-bus`
+
+9) Add Auth feature
+
+    `ng generate module auth`
+
+    `ng generate service auth/auth`
+
+    `ng generate service auth/auth-guard`
+
+    `ng generate service auth/auth-interceptor`
+
+    `ng generate module login`
+
+    `ng generate component login --module=login`
+
+    `ng generate component login/logout --module=login`
