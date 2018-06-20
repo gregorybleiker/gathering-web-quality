@@ -119,3 +119,11 @@ Here are the commands and tweaks used to create the application
     `ng generate component bets --module=bets`
 
     `ng generate component bets/bets-list --module=bets`
+
+11) Add Scores feature
+
+    `ng generate module scores`
+
+    `ng generate service scores/scores`
+
+    `ng generate component scores --module=scores`
