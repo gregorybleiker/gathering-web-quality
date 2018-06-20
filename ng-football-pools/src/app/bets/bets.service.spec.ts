@@ -6,8 +6,7 @@ import { BetsService } from './bets.service';
 
 describe('BetsService', () => {
   const testEnvironmentProvider = { provide: 'baseUrl', useValue: 'http://localhost:3000' };
-
-  const worldcupService = jasmine.createSpyObj('WorldcupService', ['getAllRounds']);
+  const worldcupServiceMock = jest.fn();
 
   let service: BetsService;
   let http: HttpTestingController;
@@ -18,7 +17,7 @@ describe('BetsService', () => {
       providers: [
         BetsService,
         testEnvironmentProvider,
-        { provide: WorldcupService, useValue: worldcupService }
+        { provide: WorldcupService, useValue: worldcupServiceMock }
       ]
     });
 

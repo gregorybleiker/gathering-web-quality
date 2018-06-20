@@ -5,8 +5,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 
 describe('AuthGuardService', () => {
-  const authService = jasmine.createSpyObj('AuthService', ['isLoggedIn', 'saveRedirectUrl']);
-  const router = jasmine.createSpyObj('Router', ['navigate']);
+  const authService = jest.fn();
+  const router = jest.fn();
 
   beforeEach(() => {
     TestBed.configureTestingModule({

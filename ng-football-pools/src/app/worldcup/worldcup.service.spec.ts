@@ -2,12 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 
 import { marbles } from 'rxjs-marbles/mocha';
+import { when } from 'jest-when';
 
 import { WorldcupService } from './worldcup.service';
 import { worldcupData } from './test.support';
 
 describe('WorldcupService', () => {
-  const httpClient = jasmine.createSpyObj('HttpClient', ['get']);
+  const HttpClientMock = jest.fn(() => ({ get: jest.fn() }));
+  const httpClientMock = new HttpClientMock();
 
   let service: WorldcupService;
 
@@ -15,7 +17,7 @@ describe('WorldcupService', () => {
     TestBed.configureTestingModule({
       providers: [
         WorldcupService,
-        { provide: HttpClient, useValue: httpClient },
+        { provide: HttpClient, useValue: httpClientMock },
         { provide: 'worldcupUrl', useValue: 'http://openfootball.org' }
       ]
     });
@@ -26,12 +28,12 @@ describe('WorldcupService', () => {
   it(
     'should get all rounds from API bakend',
     marbles(m => {
-      const getSpy = httpClient.get
-        .withArgs('http://openfootball.org/world-cup.json/master/2018/worldcup.json')
-        .and.returnValue(m.hot('a|', { a: worldcupData }));
+      when(httpClientMock.get)
+        .calledWith('http://openfootball.org/world-cup.json/master/2018/worldcup.json')
+        .mockReturnValue(m.hot('a|', { a: worldcupData }));
 
       m.expect(service.getAllRounds()).toBeObservable('a|', { a: worldcupData.rounds });
-      expect(getSpy.calls.any).toBeTruthy();
+      expect(httpClientMock.get).toHaveBeenCalled();
     })
   );
 });

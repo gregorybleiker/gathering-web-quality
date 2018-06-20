@@ -8,8 +8,8 @@ import { RankingsService } from './rankings.service';
 import { rankings } from './test.support';
 
 describe('RankingsComponent', () => {
-  const rankingsService = jasmine.createSpyObj('RankingsService', ['getAll']);
-  const getAllSpy = rankingsService.getAll.and.returnValue(of(rankings));
+  const RankingsServiceMock = jest.fn(() => ({ getAll: jest.fn().mockReturnValue(of(rankings)) }));
+  const rankingsServiceMock = new RankingsServiceMock();
 
   let component: RankingsComponent;
   let fixture: ComponentFixture<RankingsComponent>;
@@ -17,7 +17,7 @@ describe('RankingsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RankingsComponent],
-      providers: [{ provide: RankingsService, useValue: rankingsService }],
+      providers: [{ provide: RankingsService, useValue: rankingsServiceMock }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));

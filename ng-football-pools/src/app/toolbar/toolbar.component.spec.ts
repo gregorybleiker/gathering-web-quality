@@ -11,8 +11,11 @@ describe('ToolbarComponent', () => {
   const loggedOutState = LoginState.LoggedOut();
   const loggedInState = LoginState.LoggedIn({ id: 1, name: 'Köbi Kuhn', role: 'Player' });
 
-  const router = jasmine.createSpyObj('Router', ['navigate']);
-  const authService = jasmine.createSpyObj('AuthService', ['getLoginState']);
+  const RouterMock = jest.fn(() => ({ navigate: jest.fn() }));
+  const routerMock = new RouterMock();
+
+  const AuthServiceMock = jest.fn(() => ({ getLoginState: jest.fn() }));
+  const authServiceMock = new AuthServiceMock();
 
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
@@ -22,15 +25,15 @@ describe('ToolbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ToolbarComponent],
       providers: [
-        { provide: Router, useValue: router },
-        { provide: AuthService, useValue: authService }
+        { provide: Router, useValue: routerMock },
+        { provide: AuthService, useValue: authServiceMock }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    authService.getLoginState.and.returnValue(LoginState.LoggedOut());
+    authServiceMock.getLoginState.mockReturnValue(LoginState.LoggedOut());
 
     fixture = TestBed.createComponent(ToolbarComponent);
     component = fixture.componentInstance;
@@ -50,7 +53,7 @@ describe('ToolbarComponent', () => {
   });
 
   it('should expose logged in state when service has token', () => {
-    authService.getLoginState.and.returnValue(loggedInState);
+    authServiceMock.getLoginState.mockReturnValue(loggedInState);
     fixture.detectChanges();
 
     expect(component.loginState).toEqual(loggedInState);
@@ -71,7 +74,7 @@ describe('ToolbarComponent', () => {
     fixture.detectChanges();
     component.navigate();
 
-    expect(router.navigate).toHaveBeenCalledWith(['/login']);
+    expect(routerMock.navigate).toHaveBeenCalledWith(['/login']);
   });
 
   it('should navigate to logout component when logged id', () => {
@@ -79,6 +82,6 @@ describe('ToolbarComponent', () => {
     bus.publish('LoginState', loggedInState);
     component.navigate();
 
-    expect(router.navigate).toHaveBeenCalledWith(['/logout']);
+    expect(routerMock.navigate).toHaveBeenCalledWith(['/logout']);
   });
 });

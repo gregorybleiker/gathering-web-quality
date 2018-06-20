@@ -3,12 +3,14 @@ import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testi
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { throwError } from 'rxjs';
+import { when } from 'jest-when';
 
 import { LoginComponent } from './login.component';
 import { AuthService } from '../auth/auth.service';
 
 describe('LoginComponent', () => {
-  const authService = jasmine.createSpyObj('AuthService', ['login']);
+  const AuthServiceMock = jest.fn(() => ({ login: jest.fn() }));
+  const authServiceMock = new AuthServiceMock();
 
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -17,7 +19,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
       declarations: [LoginComponent],
-      providers: [{ provide: AuthService, useValue: authService }],
+      providers: [{ provide: AuthService, useValue: authServiceMock }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
@@ -58,7 +60,9 @@ describe('LoginComponent', () => {
       password: 'WrongPassword'
     });
 
-    authService.login.withArgs('john@doe.com', 'WrongPassword').and.returnValue(throwError('401'));
+    when(authServiceMock.login)
+      .calledWith('john@doe.com', 'WrongPassword')
+      .mockReturnValue(throwError('401'));
 
     fixture.detectChanges();
     component.login();

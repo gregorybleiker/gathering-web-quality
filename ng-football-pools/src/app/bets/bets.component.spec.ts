@@ -10,14 +10,6 @@ import { BetsService } from './bets.service';
 import { matchesWithBets } from './test.support';
 
 describe('BetsComponent', () => {
-  const authService = jasmine.createSpyObj('AuthService', ['getLoginState']);
-  const betsService = jasmine.createSpyObj('BetsService', ['getAllByUserId']);
-
-  const getLoginStateSpy = authService.getLoginState.and.returnValue(
-    LoginState.LoggedIn({ id: 1, name: 'Köbi Kuhn', role: 'Player' })
-  );
-  const getAllByUserIdSpy = betsService.getAllByUserId.and.returnValue(of(matchesWithBets));
-
   let component: BetsComponent;
   let fixture: ComponentFixture<BetsComponent>;
 
@@ -25,8 +17,8 @@ describe('BetsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [BetsComponent],
       providers: [
-        { provide: AuthService, useValue: authService },
-        { provide: BetsService, useValue: betsService }
+        { provide: AuthService, useValue: jest.fn() },
+        { provide: BetsService, useValue: jest.fn() }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();

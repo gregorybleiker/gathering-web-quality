@@ -17,7 +17,9 @@ describe('AuthService', () => {
   const loggedInState = LoginState.LoggedIn({ id: 1, name: 'Köbi Kuhn', role: 'Player' });
 
   const testEnvironmentProvider = { provide: 'baseUrl', useValue: 'http://localhost:3000' };
-  const router = jasmine.createSpyObj('Router', ['navigate']);
+
+  const RouterMock = jest.fn(() => ({ navigate: jest.fn() }));
+  const routerMock = new RouterMock();
 
   let service: AuthService;
   let bus: EventBusService;
@@ -26,7 +28,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [AuthService, testEnvironmentProvider, { provide: Router, useValue: router }]
+      providers: [AuthService, testEnvironmentProvider, { provide: Router, useValue: routerMock }]
     });
 
     service = TestBed.get(AuthService);

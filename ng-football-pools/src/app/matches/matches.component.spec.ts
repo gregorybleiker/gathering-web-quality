@@ -8,7 +8,8 @@ import { WorldcupService } from '../worldcup';
 import { worldcupData } from '../worldcup/test.support';
 
 describe('MatchesComponent', () => {
-  const worldcupService = jasmine.createSpyObj('WorldcupService', ['getAllRounds']);
+  const WorldcupServiceMock = jest.fn(() => ({ getAllRounds: jest.fn() }));
+  const worldcupServiceMock = new WorldcupServiceMock();
 
   let component: MatchesComponent;
   let fixture: ComponentFixture<MatchesComponent>;
@@ -16,7 +17,7 @@ describe('MatchesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MatchesComponent],
-      providers: [{ provide: WorldcupService, useValue: worldcupService }],
+      providers: [{ provide: WorldcupService, useValue: worldcupServiceMock }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
@@ -35,12 +36,12 @@ describe('MatchesComponent', () => {
     'should expose rounds from service',
     marbles(m => {
       const rounds = m.cold('a|', { a: worldcupData.rounds });
-      const getAllRoundsSpy = worldcupService.getAllRounds.and.returnValue(rounds);
+      worldcupServiceMock.getAllRounds.mockReturnValue(rounds);
 
       fixture.detectChanges();
 
       m.expect(component.rounds$).toBeObservable(rounds);
-      expect(getAllRoundsSpy.calls.any).toBeTruthy();
+      expect(worldcupServiceMock.getAllRounds).toHaveBeenCalled();
     })
   );
 });

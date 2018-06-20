@@ -127,3 +127,9 @@ Here are the commands and tweaks used to create the application
     `ng generate service scores/scores`
 
     `ng generate component scores --module=scores`
+
+12) Add Jest support
+
+`yarn remove karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-html-reporter karma-jasmine karma-jasmine-html-reporter karma-tfs-reporter jasmine-core jasmine-spec-reporter @types/jasmine @types/jasminewd2`
+
+`yarn add jest jest-preset-angular jest-when @types/jest -D`

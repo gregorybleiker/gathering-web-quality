@@ -5,8 +5,11 @@ import { LogoutComponent } from './logout.component';
 import { AuthService } from '../../auth/auth.service';
 
 describe('LogoutComponent', () => {
-  const authService = jasmine.createSpyObj('AuthService', ['logout']);
-  const router = jasmine.createSpyObj('Router', ['navigate']);
+  const AuthServiceMock = jest.fn(() => ({ logout: jest.fn() }));
+  const authServiceMock = new AuthServiceMock();
+
+  const RouterMock = jest.fn(() => ({ navigate: jest.fn() }));
+  const routerMock = new RouterMock();
 
   let component: LogoutComponent;
   let fixture: ComponentFixture<LogoutComponent>;
@@ -15,8 +18,8 @@ describe('LogoutComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LogoutComponent],
       providers: [
-        { provide: AuthService, useValue: authService },
-        { provide: Router, useValue: router }
+        { provide: AuthService, useValue: authServiceMock },
+        { provide: Router, useValue: routerMock }
       ]
     }).compileComponents();
   }));
@@ -33,10 +36,10 @@ describe('LogoutComponent', () => {
   });
 
   it('should logout with service', () => {
-    expect(authService.logout).toHaveBeenCalled();
+    expect(authServiceMock.logout).toHaveBeenCalled();
   });
 
   it('should navigate to home component', () => {
-    expect(router.navigate).toHaveBeenCalledWith(['/home']);
+    expect(routerMock.navigate).toHaveBeenCalledWith(['/home']);
   });
 });
