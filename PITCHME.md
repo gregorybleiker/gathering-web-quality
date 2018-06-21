@@ -130,6 +130,8 @@ Code coverage comes out of the box:
 
 `jest --coverage`
 
++++
+
 ### Snapshot testing
 
 - Compares expectation to stored snapshot
