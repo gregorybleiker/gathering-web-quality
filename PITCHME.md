@@ -82,4 +82,60 @@ Photographer (Gampel Open Air)
 
 ### Web Application Quality Cheat Sheet
 
-![Gampel](assets/CheatSheet.jpg)
+![Cheat Sheet](assets/CheatSheet.jpg)
+
+---
+
+### Jest
+
+- Testing is hard...
+    - never have time, instead have deadlines
+    - takes a lot of time
+    - deal with setup
+    - deal with data
+    - whole new code to maintain
+
++++
+
+### Jest
+
+- Jest changes the way you think about testing
+- Built around `JsDom` (like a headless browser)
+    - Pure JavaScript implementation
+    - Super fast
+
++++
+
+### Why use Jest?
+
+- Super fast (runs failed tests first)
+- Snapshot testing
+- Sandboxed (no side effects between tests)
+- Error reporting (nice output, no stacktrace)
+- Zero Config
+
++++
+
+### Why use Jest?
+
+Looks almost like Jasmine tests, in fact you can run your jasmine tests with jest.
+
+Difference: Spys
+
++++
+
+### Why use Jest?
+
+Code coverage comes out of the box:
+
+`jest --coverage`
+
+### Snapshot testing
+
+- Compares expectation to stored snapshot
+- Stores a snapshot if it doesn't exist
+- Pretty no maintenance needed
+- Performs a diff on snapshot (what I expect vs. what I have)
+- ... helps figuring out changes very quickly (just a mistake or has smtng changed?)
+- easily update snapshots on refactor (e.g. watch mode)
+- snapshots are gonna be checked in with Git
